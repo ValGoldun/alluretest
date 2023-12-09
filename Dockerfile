@@ -10,6 +10,10 @@ RUN pip install pipenv \
 
 WORKDIR /app
 
+COPY send_results.sh .
+
+RUN chmod +x send_results.sh
+
 RUN mkdir /app/allure-results
 
 
