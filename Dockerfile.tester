@@ -1,0 +1,7 @@
+FROM --platform=linux/amd64 allurebase
+ENV PATH="/.venv/bin:$PATH"
+
+COPY example-service-test .
+COPY send_results.sh .
+
+CMD pipenv run pytest -v -p no:warnings --alluredir=/app/allure-results; chmod +x send_results.sh; ./send_results.sh
